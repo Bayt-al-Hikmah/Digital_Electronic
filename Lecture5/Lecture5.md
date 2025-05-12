@@ -145,7 +145,6 @@ Here’s what each part means:
 - **$T_{\text{setup}}$**: The setup time  how long the data needs to be stable before the next clock edge.
 - **$T_{\text{comb}}$**: The delay caused by the combinational logic between flip-flops. This is the actual processing time of the logic gates.
 - **$T_{\text{clk-to-Q}}$**: The clock-to-Q delay  how long it takes for the flip-flop to update its output after the clock edge.
-This equation shows how the **clock period** must be chosen based on not only the combinational logic delay (**Tcomb**) but also the **setup time** of the receiving flip-flop and the **clock-to-Q** delay of the sending flip-flop.
 ## Registers
 ### Introduction
 Latches and flip-flops form the fundamental building blocks of sequential circuits, using these elements, we can construct more complex systems by combining multiple flip-flops. For example, by connecting two or more flip-flops together, we can create useful devices such as registers and counters, which are essential in memory storage, data processing, and digital timing operations.
