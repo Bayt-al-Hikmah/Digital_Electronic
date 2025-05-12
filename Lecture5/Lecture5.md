@@ -127,6 +127,25 @@ We can observe that at each rising edge of the clock, the JK flip-flop reads the
 Initially, Q is 0. On the first rising edge, both J and K are 0, so the output remains unchanged. On the second rising edge, J is 1 and K is 0, causing the output to be set to 1. On the third rising edge, both J and K are high, so the output toggles and becomes 0. The same happens on the fourth rising edge since both J and K are still 1, the output toggles again and becomes 1.  
 This behavior continues as long as clock pulses are received and the circuit remains powered.  
 Timing diagrams offer a clear and intuitive way to visualize and understand the behavior of sequential circuits over time.
+### Setup and Hold Time
+Flip-flops and latches work with clocks and timing signals. We saw earlier that edge-triggered devices (lflip-flops) can be more precise than level-triggered ones (latches), which makes them useful for building stable sequential circuits. But just relying on the clock edge isn’t enough. There are other timing rules we have to follow to make sure everything works as expected.
+Two important constraints you always need to care about when dealing with flip-flops are setup time and hold time. These define when data should be ready and stable in relation to the clock.
+#### Setup Time
+Setup time is the minimum amount of time that the data input needs to stay stable before the active clock edge. If the data changes too close to the clock edge, the flip-flop might not be able to capture it correctly. It could go into a metastable state, where the output becomes unpredictable or takes too long to settle. This could break things in the rest of your circuit.
+#### Hold Time
+Hold time is the minimum time the data input must stay stable after the clock edge. If the data changes too soon after the edge, it might still mess with the flip-flop's operation, and the output could again be wrong or unstable.
+<img src="./attachments/holdtime.png">
+We can see from the output that the data input needs to be set before the clock edge that’s the setup time and it also needs to stay stable for a short time after the clock edge, which is the hold time. Once both of these conditions are met, the flip-flop will respond, but not instantly. The output will change after a small delay known as **T<sub>clock→Q</sub>**, which is the time the flip-flop takes to update its output after the clock edge. This delay depends on the internal structure of the flip-flop and also ties into the critical path delay when we look at the full circuit  
+When we set the clock period for our circuit, we need to make sure it’s long enough to allow the data to pass through all stages and settle correctly. That’s why we follow this important timing equation:
+
+$$T_{\text{clk}} \geq T_{\text{setup}} + T_{\text{comb}} + T_{\text{clk-to-Q}}$$
+Here’s what each part means:
+
+- **$T_{\text{clk}}$**: This is the clock period, or the total time between two active clock edges. It defines how fast our system runs.
+- **$T_{\text{setup}}$**: The setup time  how long the data needs to be stable before the next clock edge.
+- **$T_{\text{comb}}$**: The delay caused by the combinational logic between flip-flops. This is the actual processing time of the logic gates.
+- **$T_{\text{clk-to-Q}}$**: The clock-to-Q delay  how long it takes for the flip-flop to update its output after the clock edge.
+This equation shows how the **clock period** must be chosen based on not only the combinational logic delay (**Tcomb**) but also the **setup time** of the receiving flip-flop and the **clock-to-Q** delay of the sending flip-flop.
 ## Registers
 ### Introduction
 Latches and flip-flops form the fundamental building blocks of sequential circuits, using these elements, we can construct more complex systems by combining multiple flip-flops. For example, by connecting two or more flip-flops together, we can create useful devices such as registers and counters, which are essential in memory storage, data processing, and digital timing operations.

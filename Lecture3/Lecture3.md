@@ -403,3 +403,12 @@ From the table, we derive the logic expressions:
 
 **Circuit**  
 <img src="./attachments/fullsubtractor.png" width="550px" height="300px">
+### Critical Path Delay
+In a previous circuits, we saw how to build a full adder. However, when we need to add two binary numbers with more than one bit, we must connect multiple full adders together we will need n full adders for n-bit numbers. Each full adder receives a carry input from the previous one, forming a chain where the carry propagates through the entire circuit. The path taken by a signal from the input of the first full adder to the output of the last is known as the critical path.  
+The critical path is defined as the longest path that a signal must travel through the logic gates from any input to any output. This path determines the maximum delay in a combinational circuit, as each logic operation requires a certain amount of time to complete. In a ripple-carry adder, for example, each full adder must wait for the carry-out from the previous adder before it can produce its result. This creates a sequential dependency that introduces cumulative delay.  
+For instance, if we want to add two 4-bit binary numbers using a ripple-carry adder, we would need 4 full adders. If each full adder takes 2 nanoseconds to complete its operation, the total delay would be:
+4 × 2ns = 8ns.
+This means the circuit requires at least 8 nanoseconds to produce a valid output after the inputs change.  
+<img src="./attachments/4bit_adder.png" height="300px">  
+
+Understanding the critical path delay is essential because it defines the minimum amount of time the circuit needs to compute its output. This delay plays a crucial role when transitioning to sequential logic, where it directly impacts how fast we can clock the system without introducing timing errors.
