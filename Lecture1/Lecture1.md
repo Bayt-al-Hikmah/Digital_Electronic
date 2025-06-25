@@ -66,13 +66,8 @@ $(d_nd_{n−1}…d_0)_x=d_0⋅x^0+d_1⋅x^1+⋯+d_n⋅x^n$
   
 
 **Examples**:
-
-  
-
 - $(1011)_2=1⋅2^0+1⋅2^1+0⋅2^2+1⋅2^3=1+2+0+8=(11)_{10}$
-
 - $(37)_8=7⋅8^0+3⋅8^1=7+24=(31)_{10}$
-
 - $(5E)_{16}=14⋅16^0+5⋅16^1=14+80=(94)_{10}$
 
 #### Converting from Decimal to Base X
@@ -138,12 +133,9 @@ To convert from octal or hexadecimal to binary:
 3. If a binary group has fewer digits, pad it with zeros on the left.
 
 **For example:**  
-
-- Converting $(64)_8$ to binary
-
-  - $6 =(110)_2$
-
-  - $4 = (100)_2$
+Converting $(64)_8$ to binary
+- $6 =(110)_2$
+- $4 = (100)_2$
 
   
 
