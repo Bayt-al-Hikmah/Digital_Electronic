@@ -18,18 +18,22 @@ Sequential logic is broadly categorized into:
 Clock edges are essential for adding timing control to sequential circuits. They determine when a circuit should respond to its inputs or change state. In digital circuits, there are four main types of clocking methods used:
 #### Level-Triggered
 **High (State 1)** In this method, the circuit is activated when the clock signal is at logic High (1). As long as the clock remains at this level, the circuit may continue to respond to inputs.   
-High state trigger represented by the following symbol on circuits
-<img src="./attachments/High_state.png" width="300px" height="200px">
+High state trigger represented by the following symbol on circuits  
+
+<img src="./attachments/high_state.png" width="300px" height="200px">   
+
 **Low (State 0)** Here, the circuit is activated when the clock signal is at logic Low (0). The circuit may continue to operate as long as the clock stays in the low state.  
-Low state trigger represented by the following symbol on circuits
-<img src="./attachments/Low_state.png" width="300px" height="200px">
+Low state trigger represented by the following symbol on circuits   
+<img src="./attachments/low_state.png" width="300px" height="200px">  
+
 #### Edge-Triggered
 To overcome the limitations of level-triggered designs such as unreliable detection when the clock switches too quickly, or when it remains high for too long causing the circuit to oscillate edge triggering was introduced. 
 **Rising Edge** (or positive edge) occurs when the clock transitions from **0 to 1**, The circuit only responds at the moment of this transition, ensuring precise timing, it is typically symbolized by an upward arrow or a vertical edge with a rising slope in diagrams.    
 <img src="./attachments/r_edge.png" width="300px" height="200px">
 
-**Falling edge** (or negative edge) occurs when the clock transitions from **1 to 0**, Like the rising edge, it activates the circuit only during this moment of change, it is usually symbolized by a downward arrow or a vertical edge with a falling slope.
-<img src="./attachments/f_edge.png" width="300px" height="200px">
+**Falling edge** (or negative edge) occurs when the clock transitions from **1 to 0**, Like the rising edge, it activates the circuit only during this moment of change, it is usually symbolized by a downward arrow or a vertical edge with a falling slope.   
+<img src="./attachments/f_edge.png" width="300px" height="200px">  
+
 ## Latches and Flip-Flops
 ### Introduction
 Latches and flip-flops are the building blocks of sequential logic circuits, they have ability to store data this make their outputs depend on current inputs and also on the past inputs.
@@ -50,8 +54,10 @@ The first type of latch we encounter is the SR (Set-Reset) latch. This device ha
 |0|1|0|Reset|
 |1|0|1|Set|
 |1|1|Invalid|**Prohibited state**|
+
 The SR latch is the simplest form of memory storage in digital logic and is commonly implemented using NOR or NAND gates.
-<img src="./attachments/sr.png" width="250px" height="250px">
+<img src="./attachments/sr.png" width="250px" height="250px">  
+
 The simplified ciruit look as following  
 
 <img src="./attachments/sr_simplified.png" width="200px" height="150px">
@@ -67,12 +73,14 @@ When the Enable signal is active (1), the output Q follows the value of D. When 
 | 0              | 1             | Q (previous)   | No change (latched state) |
 | 1              | 0             | 0              | Q follows D (transparent) |
 | 1              | 1             | 1              | Q follows D (transparent) |
-The D latch is represented by the following circuit.
+
+The D latch is represented by the following circuit.  
 <img src="./attachments/d.png" width="350px" height="250px">
 
 The simplified ciruit represented by  
 
-<img src="./attachments/d_simplified.png" width="200px" height="150px">
+<img src="./attachments/d_simplified.png" width="200px" height="150px">  
+
 ### JK Flip-Flop
 The **JK flip-flop** is an improvement over the SR flip-flop. It eliminates the **invalid state** that occurs when both Set and Reset are 1. It has two inputs — **J** and **K** — along with a **clock** input and outputs **Q** and sometimes **$\overline{Q}$**.
 - When **J = 0** and **K = 0**, the output remains unchanged (no change).
@@ -88,13 +96,15 @@ This flip-flop is edge-triggered, meaning it responds to a clock transition (usu
 | ↑              | 0     | 1     | 0                      | Reset                 |
 | ↑              | 1     | 0     | 1                      | Set                   |
 | ↑              | 1     | 1     | $\overline{Q}_{n-1}$   | Toggle                |
+
 The JK flip-flop solves the undefined behavior of the SR flip-flop and is commonly used in digital counters.
 
 <img src="./attachments/jk.png" width="350px" height="250px">  
 
 We can simplify it to the following circuit  
 
-<img src="./attachments/jk_simplified.png" width="200px" height="150px">
+<img src="./attachments/jk_simplified.png" width="200px" height="150px">  
+
 ### T (Toggle) Flip-Flop
 The T flip-flop is a simplified version of the JK flip-flop, created by connecting both the J and K inputs together. It has a single input T and a clock signal. Its operation is straightforward:
 - When **T = 0**, the output remains unchanged.
@@ -105,20 +115,23 @@ T flip-flops are often used in **counters** and **frequency division** circuits 
 | ----- | -------------- | --------------------- | --------------------- |
 | 0     | ↑ (rising)     | $Q_{n-1}$ (previous)  | No change             |
 | 1     | ↑              | $\overline{Q}_{n-1}$  | Toggle                |
+
 The T flip-flop is useful when only toggling behavior is required, such as in binary counters.
 
 <img src="./attachments/t.png" width="350px" height="250px">  
 
 The simplified ciruit represented by  
 
-<img src="./attachments/t_s.png" width="200px" height="150px">
+<img src="./attachments/t_s.png" width="200px" height="150px">  
+
 ### Timing Diagram
 When designing sequential circuits, truth tables can be limited in expressing behavior over time. To address this, we use timing diagrams.   
 Timing diagrams provide a clearer and more intuitive way to visualize how inputs and outputs change with respect to time. They not only show the values of signals at specific moments but also illustrate how outputs respond to inputs over time, including the previous states of the system.  
 Typically, the first line in a timing diagram represents the clock signal**, followed by lines for inputs, and finally the outputs.
 #### Example 
 A JK flip-flop with the following inputs and a rising-edge-triggered clock will toggle its output on every rising edge of the clock signal.  
-<img src="./attachments/jk_example.png" width="200px" height="150px">  
+<img src="./attachments/jk_example.png" width="200px" height="150px">    
+
 The output result will be the following using the timing diagram  
 
 <img src="./attachments/result.png" width="450px" height="350px">    
@@ -133,12 +146,12 @@ Two important constraints you always need to care about when dealing with flip-f
 #### Setup Time
 Setup time is the minimum amount of time that the data input needs to stay stable before the active clock edge. If the data changes too close to the clock edge, the flip-flop might not be able to capture it correctly. It could go into a metastable state, where the output becomes unpredictable or takes too long to settle. This could break things in the rest of your circuit.
 #### Hold Time
-Hold time is the minimum time the data input must stay stable after the clock edge. If the data changes too soon after the edge, it might still mess with the flip-flop's operation, and the output could again be wrong or unstable.
+Hold time is the minimum time the data input must stay stable after the clock edge. If the data changes too soon after the edge, it might still mess with the flip-flop's operation, and the output could again be wrong or unstable.  
 <img src="./attachments/holdtime.png">
 We can see from the output that the data input needs to be set before the clock edge that’s the setup time and it also needs to stay stable for a short time after the clock edge, which is the hold time. Once both of these conditions are met, the flip-flop will respond, but not instantly. The output will change after a small delay known as **T<sub>clock→Q</sub>**, which is the time the flip-flop takes to update its output after the clock edge. This delay depends on the internal structure of the flip-flop and also ties into the critical path delay when we look at the full circuit  
 When we set the clock period for our circuit, we need to make sure it’s long enough to allow the data to pass through all stages and settle correctly. That’s why we follow this important timing equation:
 
-$$T_{\text{clk}} \geq T_{\text{setup}} + T_{\text{comb}} + T_{\text{clk-to-Q}}$$
+$T_{\text{clk}} \geq T_{\text{setup}} + T_{\text{comb}} + T_{\text{clk-to-Q}}$
 Here’s what each part means:
 
 - **$T_{\text{clk}}$**: This is the clock period, or the total time between two active clock edges. It defines how fast our system runs.
