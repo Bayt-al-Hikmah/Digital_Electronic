@@ -77,8 +77,10 @@ This means:
 
 <img src="./attachments/regis_r.png">
 
-With these enhancements, we can now simplify and visualize the circuit as shown below.
-<img src="./attachments/byte.png" height="175px">  
+With these enhancements, we can now simplify and visualize the circuit as shown below.  
+
+<img src="./attachments/byte.png" height="175px">    
+
 We have input and output fields and also Enable and read signals.  
 Now let’s combine 4 of these register units and connect them using a 1-to-4 multiplexer in the following way:
 - The enable and read (select) signals of each register are connected to one of the multiplexer’s outputs.
@@ -91,8 +93,10 @@ When no register is selected, the multiplexer outputs are all 0. This causes eac
 When a specific register is selected, only that register’s output is enabled. Since the others output 0, the OR gate will only pass the selected register’s data to the output bus. This allows selective reading of data.  
 **Writing Data to a Register:**
 When a register is not selected, its enable line is off, so any data sent through the input bus will not affect it.  
-When a register is selected, the enable line activates, and data on the input bus will be written only to that specific register, leaving the others unchanged.
-<img src="./attachments/memory.png" height="620px">  
+When a register is selected, the enable line activates, and data on the input bus will be written only to that specific register, leaving the others unchanged.  
+
+<img src="./attachments/memory.png" height="620px">   
+
 ## Finite State Machines
 ### Introduction
 A finite state machine (FSM)  mathematical model used to represent and control the behavior of systems that can exist in a finite number of states at any given time.  
@@ -101,28 +105,38 @@ At its core, an FSM consists of a set of states, a set of input events , a set o
 #### Deterministic Finite State Machine (DFSM)
 In a deterministic FSM, each state transition is uniquely determined by the current state and input. This means that given a specific input and current state, only one possible transition to the next state exists.  
 **Exxample:** Vending Machine
-Let’s consider a vending machine with three states: Idle, Selection, and Dispense. The transitions between these states depend on user input and the current state. For instance, if the current state is ‘Idle’ and the user selects a product, the machine transitions to the ‘Selection’ state. If the user confirms the selection, the machine moves to the ‘Dispense’ state and dispenses the chosen item. This example showcases a deterministic FSM because, for each input and state, there is a unique next state.
-<img src="./attachments/vm.png" height="200px" >  
+Let’s consider a vending machine with three states: Idle, Selection, and Dispense. The transitions between these states depend on user input and the current state. For instance, if the current state is ‘Idle’ and the user selects a product, the machine transitions to the ‘Selection’ state. If the user confirms the selection, the machine moves to the ‘Dispense’ state and dispenses the chosen item. This example showcases a deterministic FSM because, for each input and state, there is a unique next state.  
+
+<img src="./attachments/vm.png" height="200px" >   
+
 #### Non-deterministic finite state machine (NDFSM)
 Non-deterministic FSMs allow multiple transitions for a given input and current state. This means that the next state is not uniquely determined and the machine can be in multiple states simultaneously.  
 **Example:** Elevator System  
-Let’s consider an elevator system with four floors: Ground, First, Second, and Third. When a user presses a button inside the elevator, the desired floor can be reached in different ways. For instance, if the current state is ‘Ground’ and the user presses the button for the third floor, the elevator can take different paths, such as stopping at the first floor and then on the second floor before finally reaching the third floor. This example illustrates a non-deterministic FSM since multiple transitions are possible for the same input and state.
-<img src="./attachments/elv.png" height="200px" >  
+Let’s consider an elevator system with four floors: Ground, First, Second, and Third. When a user presses a button inside the elevator, the desired floor can be reached in different ways. For instance, if the current state is ‘Ground’ and the user presses the button for the third floor, the elevator can take different paths, such as stopping at the first floor and then on the second floor before finally reaching the third floor. This example illustrates a non-deterministic FSM since multiple transitions are possible for the same input and state.  
+
+<img src="./attachments/elv.png" height="200px" >   
+
 #### Mealy machine
 Mealy machines are FSMs that not only define the states and transitions but also associate outputs with each transition. The outputs in these types of machines rely on both the current state and the input.  
 **Example:** Coin-operated Turnstile System  
-Consider a coin-operated turnstile system. The turnstile has two states: ‘Locked’ and ‘Unlocked.’ When a coin is inserted (input) while in the ‘Locked’ state, the system transitions to the ‘Unlocked’ state and outputs a signal to allow the person to pass through (output). On the other hand, if someone tries to pass through without inserting a coin (input) while in the ‘Locked’ state, the system remains in this state and outputs a signal indicating that access is denied (output). In this example, the outputs (pass or access denied signals) depend on both the current state and the input, showcasing the behavior of a Mealy machine.
-<img src="./attachments/ts.png" height="200px" >  
+Consider a coin-operated turnstile system. The turnstile has two states: ‘Locked’ and ‘Unlocked.’ When a coin is inserted (input) while in the ‘Locked’ state, the system transitions to the ‘Unlocked’ state and outputs a signal to allow the person to pass through (output). On the other hand, if someone tries to pass through without inserting a coin (input) while in the ‘Locked’ state, the system remains in this state and outputs a signal indicating that access is denied (output). In this example, the outputs (pass or access denied signals) depend on both the current state and the input, showcasing the behavior of a Mealy machine.  
+
+<img src="./attachments/ts.png" height="200px" >   
+
 #### Moore machine
 A Moore machine is a type of FSM where the outputs depend only on the current state. This implies that regardless of the inputs, the outputs are determined by the state the machine is in. The transitions between states are triggered by the inputs, but the outputs are associated with the states themselves.  
 **Example:** Doorbell System  
-A doorbell system has two states: ‘Idle’ and ‘Ring.’ When someone presses the doorbell button (input), the system transitions from the ‘Idle’ state to the ‘Ring’ state. In the ‘Ring’ state, the system continuously outputs a ringing sound (output) until the button is released. Once the button is released, the system transitions back to the ‘Idle’ state. In this example, the outputs (ringing sound) depend only on the current state, regardless of the input, illustrating the behavior of a Moore machine.
-<img src="./attachments/rg.png" height="200px" >  
+A doorbell system has two states: ‘Idle’ and ‘Ring.’ When someone presses the doorbell button (input), the system transitions from the ‘Idle’ state to the ‘Ring’ state. In the ‘Ring’ state, the system continuously outputs a ringing sound (output) until the button is released. Once the button is released, the system transitions back to the ‘Idle’ state. In this example, the outputs (ringing sound) depend only on the current state, regardless of the input, illustrating the behavior of a Moore machine.  
+
+<img src="./attachments/rg.png" height="200px" >   
+
 ### State Transition Table
 A state transition table represents the system's states and the transitions that occur based on inputs. The structure of this table depends on the type of finite state machine (FSM): for a DFA, it includes current states, inputs, and next states; for Mealy and Moore machines, it may also include outputs.
 #### Example
-Lets suppose we have the following diagram
-<img src="./attachments/fnd.png" height="250px" >  
+Lets suppose we have the following diagram  
+
+<img src="./attachments/fnd.png" height="250px" >    
+
 To draw the state transition table, we first identify all the states in the system. In this case, we have the following states: A, B, C, and D. 
 Next, we determine the transitions based on each current state and input, along with the corresponding output. Here's the analysis:
 - When the current state is A:
@@ -150,6 +164,7 @@ Based on this, the state transition table is as follows:
 | C             | 1     | C          | 1      |
 | D             | 0     | C          | 0      |
 | D             | 1     | A          | 0      |
+
 ### Simplifying Finit State Machine
 We can simplify a finite state machine (FSM) using the state transition table by following a few steps:
 1. **Define Equivalent States**:  
@@ -171,7 +186,8 @@ Let’s suppose we have the following **state transition table**:
 | D             | 1     | D          | 1      |
 | E             | 0     | A          | 1      |
 | E             | 1     | E          | 0      |
-First thing we can notice is that from state A we can never reach state E, which means E is an unreachable state, so we remove it.   
+
+First thing we can notice is that from state A we can never reach state E, which means E is an unreachable state, so we remove it.    
 Second thing, we can see that state C and state D behave the same. They give the same output and go to the same or similar destinations for the same input. So we can say they are equivalent and merge them into one state.  
 After removing the unreachable state and merging the equivalent states, our new table becomes:
 
