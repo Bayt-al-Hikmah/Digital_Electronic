@@ -6,9 +6,12 @@ Programmable Logic Devices (PLDs) are special types of integrated circuits that 
 By setting or modifying the connections between these gates, users can design and implement custom digital logic circuits. There are multiples types of programmable logic devices, distinguished by how the AND and OR gate arrays are organized some use fixed arrays while others support variable or programmable connections.
 ### Types of Programmable Logical Device
 #### Programmable Read Only Memory (PROM)
-The PROM (Programmable Read Only Memory) has a fixed AND array (constructed as a decoder) and programmable connections for the output OR gates array. The PROM implements Boolean functions in sum-of-min terms form.
-<img src="./attachments/prom.png" height="200px">
-**Example:**
+The PROM (Programmable Read Only Memory) has a fixed AND array (constructed as a decoder) and programmable connections for the output OR gates array. The PROM implements Boolean functions in sum-of-min terms form.  
+
+<img src="./attachments/prom.png" height="200px">  
+
+**Example:**  
+
 Let's suppose we have a truth table with 3 input variables and 2 output variables. 
 
 |A|B|C|Y1|Y2|
@@ -20,12 +23,17 @@ Let's suppose we have a truth table with 3 input variables and 2 output variable
 |1|0|0|1|1|
 |1|0|1|0|1|
 |1|1|0|1|0|
-|1|1|1|0|0|
-We can implement this truth table using a Programmable Read-Only Memory (PROM). In this case, the PROM uses a 3-to-8 line decoder to generate all possible input combinations, and 2 OR gates to produce the required output functions based on the stored data.
-$$Y_1=\sum{(1,2,4,6)}$$
-$$Y_2=\sum{(0,2,4,5)}$$
-The circuit will be represented as following
+|1|1|1|0|0| 
+
+We can implement this truth table using a Programmable Read-Only Memory (PROM). In this case, the PROM uses a 3-to-8 line decoder to generate all possible input combinations, and 2 OR gates to produce the required output functions based on the stored data.  
+
+$Y_1=\sum{(1,2,4,6)}$   
+$Y_2=\sum{(0,2,4,5)}$  
+
+The circuit will be represented as following 
+
 <img src="./attachments/prom1.png" height="300px">  
+
 From the circuit, we can observe that the inputs are hard-wired, meaning they directly drive the decoder and cannot be changed. However, the outputs are configurable, depending on the Boolean functions we want to implement. If we need additional outputs, we can simply add more OR gates connected to the appropriate minterms from the decoder to generate the desired output logic.
 #### Programmable Array Logic (PAL)
 The **PAL** features a programmable AND array  and a fixed OR array. This is the opposite of PROM, which has a fixed AND array and programmable OR array. In a PAL, users can program the input combinations (product terms), but the way these product terms are combined into outputs is fixed by the hardware. PALs are designed to implement Boolean functions in sum-of-products (SOP) form.
@@ -77,8 +85,9 @@ We’ll use the same truth table with 3 input variables and 2 output variables:
 
 We simplify the Boolean expressions for outputs using Karnaugh maps or algebraic manipulation and get:
 
-$$Y_1 = \overline{A}.C + A.\overline{B}.\overline{C} + \overline{A}.B.\overline{C} + A.B$$
-$$Y_2 = \overline{A}.\overline{B}.\overline{C} + \overline{A}.B.\overline{C} + A.\overline{B}.\overline{C} + A.\overline{B}.C$$
+$Y_1 = \overline{A}.C + A.\overline{B}.\overline{C} + \overline{A}.B.\overline{C} + A.B$  
+
+$Y_2 = \overline{A}.\overline{B}.\overline{C} + \overline{A}.B.\overline{C} + A.\overline{B}.\overline{C} + A.\overline{B}.C$
 
 In the PLA, the AND array is programmed to generate all needed product terms, and the OR array is programmed to sum the desired terms for each output. This makes PLA ideal for implementing functions that require complete control over the logic expressions.
 
