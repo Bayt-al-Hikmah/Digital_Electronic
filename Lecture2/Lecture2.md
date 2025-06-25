@@ -16,11 +16,11 @@ Boolean functions are used to represent the logic of digital circuits. Every log
 A truth table is used to represent a Boolean function by listing all possible combinations of input values and their corresponding output. It helps visualize how a Boolean function behaves for every possible input.  
 If two Boolean functions have identical truth tables that is, they produce the same output for every input combination, then the functions are considered equivalent.
 ### Boolean Algerbra Operator
-#### NOT (¬,$\overline{A}$) 
+#### NOT (¬,$`\overline{A}`$) 
 The NOT operator inverts the value of a Boolean variable, if we had 1 (true) it become 0 (false) if we had 0 (false) it become 1 (true).  
 **Truth Table**
 
-| A   | $\overline{A}$ |
+| A   | $`\overline{A}`$ |
 | --- | -------------- |
 | 0   | 1              |
 | 1   | 0              |
@@ -55,7 +55,9 @@ The XO** (exclusive OR) operator, often written as **⊕**, returns 1 (true) onl
 | 0   | 1   | 1     |
 | 1   | 0   | 1     |
 | 1   | 1   | 0     |
-We can represent A ⊕ B as $(\overline{A}.B)+(A.\overline{B})$
+
+
+We can represent A ⊕ B as $`(\overline{A}.B)+(A.\overline{B})`$
 ### Boolean Algerbra Rules
 Boolean algebra follows a set of rules and identities that help simplify and manipulate Boolean expressions.
 ####  Identity Laws
@@ -88,9 +90,9 @@ Boolean algebra follows a set of rules and identities that help simplify and man
 ### De Morgan’s Laws
 De Morgan’s Laws are fundamental rules in Boolean algebra that show how to simplify expressions involving NOT, AND, and OR.  
 There are two laws:
-1. **$\overline{A . B} =\overline{A} + \overline{B}$**
+1. **$`\overline{A·B} =\overline{A} + \overline{B}`$**
      "The negation of A AND B is the same as NOT A OR NOT B."
-2. **$\overline{A + B} = \overline{A} . \overline{B}$**
+2. **$`\overline{{A + B}} = \overline{A} . \overline{B}`$**
      "The negation of A OR B is the same as NOT A AND NOT B."
 ## Logic Gates
 ### Introduction
@@ -205,6 +207,7 @@ To convert a Boolean function into a logic circuit, we follow these steps:
 
 **Example:** Convert the Boolean function:  
 **$F = A·B + \overline{B}·C + D$** 
+
 **Step 1: Identify variables**  
 The function involves the inputs **A, B, C, and D**.  
 **Step 2: Divide the function into parts**   
@@ -222,7 +225,9 @@ So, the breakdown becomes:
 - Use a NOT gate followed by an AND gate for **N**
 - Use OR gates to combine **M, N**, and **D**
 
-<img src="./attachments/function.png" width="500px" height="300px">
+<img src="./attachments/function.PNG" width="500px" height="300px"> 
+
+
 #### Convert Logic Circuit to Boolean Function
 Converting a logic circuit into a Boolean function is done by working in reverse order starting from the output and tracing the circuit back to the inputs.
 Here’s the step-by-step process:
@@ -234,9 +239,14 @@ Here’s the step-by-step process:
 6. Finally we combine the expressions step-by-step to write the full Boolean function.
 
 **Example:** Convert the Logic circuit:  
-<img src="./attachments/function2.png" height="300px" width="500px">
+
+<img src="./attachments/function2.PNG" height="300px" width="500px">
+
 We label the input of each gate that is not a direct input variable, resulting in the following labeled diagram:
-<img src="./attachments/function3.png" height="300px" width="500px">
+
+<img src="./attachments/function3.PNG" height="300px" width="500px">
+
+
 We define expressions for each label
 - **$F = K · M$**
 - **$K = A + B$**
