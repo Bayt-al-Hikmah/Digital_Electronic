@@ -59,16 +59,16 @@ To convert a number from base x to decimal, multiply each digit by the base rais
 
 **Formula**:  
 
-If a number is represented as $(d_nd_{n−1}…d_1d_0)_x$​, then:  
+If a number is represented as $`(d_nd_{n−1}…d_1d_0)_x`$​, then:  
 
-$(d_nd_{n−1}…d_0)_x=d_0⋅x^0+d_1⋅x^1+⋯+d_n⋅x^n$
+$`(d_nd_{n−1}…d_0)_x=d_0⋅x^0+d_1⋅x^1+⋯+d_n⋅x^n`$
 
   
 
 **Examples**:
-- $(1011)_2=1⋅2^0+1⋅2^1+0⋅2^2+1⋅2^3=1+2+0+8=(11)_{10}$
-- $(37)_8=7⋅8^0+3⋅8^1=7+24=(31)_{10}$
-- $(5E)_{16}=14⋅16^0+5⋅16^1=14+80=(94)_{10}$
+- $`(1011)_2=1⋅2^0+1⋅2^1+0⋅2^2+1⋅2^3=1+2+0+8=(11)_{10}`$
+- $`(37)_8=7⋅8^0+3⋅8^1=7+24=(31)_{10}`$
+- $`(5E)_{16}=14⋅16^0+5⋅16^1=14+80=(94)_{10}`$
 
 #### Converting from Decimal to Base X
 
@@ -90,7 +90,7 @@ Converting a decimal number to another base is done using repeated division by t
 
   
 
-**Example**: Convert $(78)_{10}$​ to base 8 (octal)
+**Example**: Convert $`(78)_{10}`$​ to base 8 (octal)
 
 ```
 
@@ -104,7 +104,7 @@ Converting a decimal number to another base is done using repeated division by t
 
 Reading the remainders from bottom to top: **1 1 6**  
 
-So, $(78)_{10}=(116)_8$​
+So, $`(78)_{10}=(116)_8`$​
 
 #### Converting between Binary Octal and Hexadecimal
 
@@ -133,19 +133,18 @@ To convert from octal or hexadecimal to binary:
 3. If a binary group has fewer digits, pad it with zeros on the left.
 
 **For example:**  
-Converting $(64)_8$ to binary
-- $6 =(110)_2$
-- $4 = (100)_2$
+
+Converting $`(64)_8`$ to binary
+- $`6 =(110)_2`$
+- $`4 = (100)_2`$
 
   
 
-The result will be then $(64)_8 = (110100)_2$
+The result will be then $`(64)_8 = (110100)_2`$
 
-- Converting $(EC)_{16}$ to binary
-
-  - $E ->14 =(1110)_2$
-
-  - $C ->12 = (1100)_2$
+Converting $(EC)_{16}$ to binary
+- $`E ->14 =(1110)_2`$
+- $`C ->12 = (1100)_2`$
 
   
 
@@ -165,25 +164,25 @@ To convert from binary to octal or hexadecimal, we simply reverse the process:
 
 **For example:**
 
-- Convert $(101110)_2$ to octal
+Convert $`(101110)_2`$ to octal
 
-  - $(110)_2 = (6)_8$
+  - $`(110)_2 = (6)_8`$
 
-  - $(101)_2 = (5)_8$
+  - $`(101)_2 = (5)_8`$
 
   
 
-The result will be then $(101110)_2 = (56)_8$
+The result will be then $`(101110)_2 = (56)_8`$
 
 - Convert $(11010111)_2$ to hexadecimal
 
-  - $(0111)_2 = (7)_{16}$
+  - $`(0111)_2 = (7)_{16}`$
 
-  - $1101=11 -> (D)_{16}$
+  - $`1101=11 -> (D)_{16}`$
 
   
 
-The result will be then $(11010111)_2 = (D7)_{8}$  
+The result will be then $`(11010111)_2 = (D7)_{8}`$  
 
 To convert between hexadecimal and octal, we can use the binary system as an intermediate step,First, convert the number to binary, then convert the binary number to the target system (octal or hexadecimal).
 
@@ -201,11 +200,11 @@ In such cases, we use the decimal system as an intermediate:
 
 **For example**
 
-Convert $(132)_5$ to base 7
+Convert $`(132)_5`$ to base 7
 
-  - Convert to decimal $1.5^2 + 3.5^1 + 2.5^0 = 25 + 15 + 2= 42$
+  - Convert to decimal $`1.5^2 + 3.5^1 + 2.5^0 = 25 + 15 + 2= 42`$
 
-  - Convert $(42)_{10}$ to base-7
+  - Convert $`(42)_{10}`$ to base-7
 
 ```
 
@@ -215,7 +214,7 @@ Convert $(132)_5$ to base 7
 
 ```
 
-The result will be then $(132)_5 = (60)_{7}$  
+The result will be then $`(132)_5 = (60)_{7}`$  
 
 ## Arithmetic Operations in Binary
 
@@ -245,15 +244,15 @@ When performing operations on a fixed-size storage type , if the result exceeds 
 
 Binary addition works similarly to decimal addition, but follows specific rules based on base-2 arithmetic:
 
-- $(0)_2 + (0)_2 = (0)_2$
+- $`(0)_2 + (0)_2 = (0)_2`$
 
-- $(0)_2 + (1)_2 = (1)_2$
+- $`(0)_2 + (1)_2 = (1)_2`$
 
-- $(1)_2 + (0)_2 = (1)_2$
+- $`(1)_2 + (0)_2 = (1)_2`$
 
-- $(1)_2 + (1)_2 = (10)_2$ (which is 0 with a carry of 1)
+- $`(1)_2 + (1)_2 = (10)_2`$ (which is 0 with a carry of 1)
 
-- $(1)_2 + (1)_2 + (1)_2 = (11)_2$ (which is 1 with a carry of 1)
+- $`(1)_2 + (1)_2 + (1)_2 = (11)_2`$ (which is 1 with a carry of 1)
 
   
 
@@ -277,13 +276,13 @@ This is similar to decimal addition: for example, `5 + 5 = 10`, where the result
 
 Binary multiplication is a straightforward operation and works similarly to multiplication in the decimal system. However, since binary has only two digits (`0` and `1`), the multiplication rules are much simpler:
 
-- $(0)_2 × (0)_2 = (0)_2$
+- $`(0)_2 × (0)_2 = (0)_2`$
 
-- $(0)_2 × (1)_2 = (0)_2$
+- $`(0)_2 × (1)_2 = (0)_2`$
 
-- $(1)_2 × (0)_2 = (0)_2$
+- $`(1)_2 × (0)_2 = (0)_2`$
 
-- $(1)_2 × (1)_2 = (1)_2$
+- $`(1)_2 × (1)_2 = (1)_2`$
 
   
 
@@ -315,9 +314,9 @@ Binary division is similar to long division in the decimal system. The process i
 
 The key binary division rules are:
 
-- $(1)_2 ÷ (1)_2 = (1)_2$
+- $`(1)_2 ÷ (1)_2 = (1)_2`$
 
-- $(0)_2 ÷ (1)_2 = (0)_2$
+- $`(0)_2 ÷ (1)_2 = (0)_2`$
 
   
 
@@ -325,7 +324,7 @@ Division by 0 is undefined (just like in decimal)  
 
 **Example**  
 
-Let's divide $(110)_2$ by $(11)_2$, which is `6 ÷ 3` in decimal:
+Let's divide $`(110)_2`$ by $`(11)_2`$, which is `6 ÷ 3` in decimal:
 
 ```
 
@@ -347,7 +346,7 @@ Let's divide $(110)_2$ by $(11)_2$, which is `6 ÷ 3` in decimal:
 
 ```
 
-We get a result of $(10)_2$, which represents 2 in decimal. The result is correct.
+We get a result of $`(10)_2`$, which represents 2 in decimal. The result is correct.
 
 ### Subtraction
 
@@ -355,19 +354,19 @@ Binary subtraction can be a bit tricky. Although the rules are simple, difficult
 
 Here are the basic rules for binary subtraction:
 
-- $(0)_2 - (0)_2 = (0)_2$
+- $`(0)_2 - (0)_2 = (0)_2`$
 
-- $(0)_2 - (1)_2 = (1)_2$ requires borrowing (just like in decimal subtraction)
+- $`(0)_2 - (1)_2 = (1)_2`$ requires borrowing (just like in decimal subtraction)
 
-- $(1)_2 - (0)_2 = (1)_2$
+- $`(1)_2 - (0)_2 = (1)_2`$
 
-- $(1)_2 - (1)_2 = (0)_2$
+- $`(1)_2 - (1)_2 = (0)_2`$
 
   
 
 **Example**  
 
-Doing the following soubstraction $(1101)_2 - (1011)_2$ which is `13 - 11`in decimal
+Doing the following soubstraction $`(1101)_2 - (1011)_2`$ which is `13 - 11`in decimal
 
 ```
 
@@ -381,9 +380,9 @@ Doing the following soubstraction $(1101)_2 - (1011)_2$ which is `13 - 11`in dec
 
 ```
 
-We get a result of $(10)_2$ which represents 2 in decimal. The result is correct.  
+We get a result of $`(10)_2`$ which represents 2 in decimal. The result is correct.  
 
-Now lets try the following soubstraction $(11)_2 - (100)_2$ which is `3 - 4`in decimal
+Now lets try the following soubstraction $`(11)_2 - (100)_2`$ which is `3 - 4`in decimal
 
 ```
 
@@ -403,13 +402,13 @@ We find our self doing infinite borrowing  and getting incorrect results, To so
 
 This representation focuses on storing numbers using a fixed number of bits, where the leftmost bit (the most significant bit) is used as the sign bit. It is `0` if the number is positive and `1` if the number is negative.  
 
-![Sign-and-Magnitude](signed-1.png)  
+![Sign-and-Magnitude](attachments/signed-1.png)  
 
-Before representing a number using this method, we must first decide how many bits will be used for storage. The range of values that can be represented is determined by the following inequality:
+Before representing a number using this method, we must first decide how many bits will be used for storage. The range of values that can be represented is determined  the following inequality:
 
   
 
-$$-2^{n-1} + 1 < m < 2^{n-1} - 1$$
+$`-2^{n-1} + 1 < m < 2^{n-1} - 1`$
 
   
 
@@ -437,7 +436,7 @@ Before representing a number using this method, we must first decide how many bi
 
   
 
-$$-2^{n-1} + 1 < m < 2^{n-1} - 1$$
+$`-2^{n-1} + 1 < m < 2^{n-1} - 1`$
 
   
 
@@ -465,13 +464,13 @@ However, 1’s complement can help simplify subtraction. For example, instead of
 
   
 
-$$(0100)_2 - (0111)_2$$​
+$`(0100)_2 - (0111)_2`$​
 
 we can convert the subtraction into an addition by using the 1’s complement of the second number:
 
   
 
-$$(0100)_{C1} + (1000)_{C1}$$​
+$`(0100)_{C1} + (1000)_{C1}`$​
 
 This way, subtraction becomes an addition of the number and the 1’s complement of the subtrahend.
 
@@ -479,9 +478,9 @@ After performing the addition, if the sign bit (the most significant bit) is `1`
 
 **Example**
 
-Doing the following soubstraction $(11)_2 - (100)_2$ which is `3 - 4`in decimal  
+Doing the following soubstraction $`(11)_2 - (100)_2`$ which is `3 - 4`in decimal  
 
-it become $(0011)_{C1} + (1011)_{C1}$
+it become $`(0011)_{C1} + (1011)_{C1}`$
 
 ```
 
@@ -511,7 +510,7 @@ Before representing a number using this method, we must first decide how many bi
 
   
 
-$$-2^{n-1} \leq m \leq 2^{n-1} - 1$$
+$`-2^{n-1} \leq m \leq 2^{n-1} - 1`$
 
   
 
@@ -551,17 +550,11 @@ In 2’s complement, subtraction becomes addition by using the 2’s complement 
 
 For example, instead of doing:
 
-  
+$`(0011)_2 - (0100)_2`$
 
-$$(0011)_2 - (0100)_2$$
+We compute:  
 
-  
-
-We compute:
-
-  
-
-$$(0011)_{C2} + (1100)_{C2}$$​
+$`(0011)_{C2} + (1100)_{C2}`$​
 
   
 
@@ -569,9 +562,9 @@ Here, `1100` is the 2’s complement of `0100` (which represents `–4`).
 
 **Example:**
 
-Doing the following soubstraction $(11)_2 - (100)_2$ which is `3 - 4`in decimal  
+Doing the following soubstraction $`(11)_2 - (100)_2`$ which is `3 - 4`in decimal  
 
-it become $(0011)_{C2} + (1100)_{C2}$
+it become $`(0011)_{C2} + (1100)_{C2}`$
 
 ```
 
@@ -601,7 +594,7 @@ To convert a binary floating point number to decimal:
 
 1. Convert the part before the binary point as usual.
 
-2. Convert the part after the binary point by multiplying each digit by $2^{-n}$, where n is the position of the digit after the point (starting from 1).
+2. Convert the part after the binary point by multiplying each digit by $`2^{-n}`$, where n is the position of the digit after the point (starting from 1).
 
   
 
@@ -613,11 +606,11 @@ Convert binary `1.101` to decimal:
 
 - Part after the point:
 
-    - `1` at position 1: $1 \times 2^{-1} = 0.5$
+    - `1` at position 1: $`1 \times 2^{-1} = 0.5`$
 
-    - `0` at position 2: $0 \times 2^{-2} = 0$
+    - `0` at position 2: $`0 \times 2^{-2} = 0`$
 
-    - `1` at position 3: $1 \times 2^{-3} = 0.125$
+    - `1` at position 3: $`1 \times 2^{-3} = 0.125`$
 
   
 
@@ -679,7 +672,7 @@ The result is 1010
 
 The result is 101 we read from top to bottom  
 
-We get as final result $(10.625)_{10} = (1010.101)_2$
+We get as final result $`(10.625)_{10} = (1010.101)_2`$
 
 ### Remark
 
