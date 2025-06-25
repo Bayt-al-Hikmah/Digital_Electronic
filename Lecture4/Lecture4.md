@@ -17,7 +17,7 @@ For example, a **8:1 multiplexer** has:
 - Address `000` selects the **first** input pin
 - Address `111` selects the **last** input pin
 
-The structure of a multiplexer is illustrated below:
+The structure of a multiplexer is illustrated below:  
 <img src="./attachments/mux.png" height="350px" width="250px">
 - The $IN_x$ are the input pins
 - The $S_x$ are the address (select) pins
@@ -41,12 +41,15 @@ Let's suppose we are given the following truth table:
 | 1   | 0   | 1   | 1   |
 | 1   | 1   | 0   | 0   |
 | 1   | 1   | 1   | 1   |
+
 We can implement this truth table using an 8:1 multiplexer, where:
 - Inputs A, B, and C serve as the address (select) lines.
 - The values in the F column represent the data inputs to the multiplexer.
 
 The corresponding circuit is shown below:
+
 <img src="./attachments/mux2.png" height="300px" width="250px">
+
 We can simplify the circuit by using a 4:1 multiplexer instead. In this case:
 - B and C will be used as address lines.
 - **A** will be used to control the output based on logic.
@@ -63,6 +66,7 @@ To do this, we restructure the truth table by grouping rows according to values 
 | 1   | 1   | 0   | 0   |
 | 0   | 1   | 1   | 0   |
 | 1   | 1   | 1   | 1   |
+
 Now we analyze the behavior for each combination of B and C:
 - Address 00 (B=0, C=0):  
     $F = \overline{A}$
@@ -82,8 +86,9 @@ Based on this, the inputs of the 4:1 multiplexer will be connected as follows:
 |10|I₂|$\overline{A}$|
 |11|I₃|A|
 
-We can now draw the simplified logic circuit using a 4:1 multiplexer and the control signal **A** as input to each data line based on the configuration above.
+We can now draw the simplified logic circuit using a 4:1 multiplexer and the control signal **A** as input to each data line based on the configuration above.  
 <img src="./attachments/mux3.png" height="300px" width="250px">
+
 ### Demultiplexer
 A demultiplexer (or demux) is the opposite of a multiplexer. Instead of selecting one input from many to send to a single output, a demultiplexer routes a single input to one of many outputs, based on the values of its address (select) lines.
 A demultiplexer consists of three main parts:
@@ -112,7 +117,8 @@ The structure of a demultiplexer is shown below:
 
 The simplified version of the circuit is shown here:
 
-<img src="./attachments/demux1.png" height="300px" width="250px">
+<img src="./attachments/demux1.png" height="300px" width="250px">  
+
 #### Using a Demultiplexer in Logic Design
 Demultiplexers are useful in logic circuits when you want to distribute a signal to one of many destinations, based on select lines. We can also use them to implement logic functions by controlling when specific outputs are activated.  
 **Example**  
@@ -250,6 +256,7 @@ In BCD, only the binary combinations from **0000** to **1001** are valid, corres
 | 7     | 0111 |
 | 8     | 1000 |
 | 9     | 1001 |
+
 **Example:**  
 To represent the decimal number **17** in BCD:
 - First, write the BCD for 1:  **0001**
@@ -272,47 +279,53 @@ Below is the basic 3-bit Gray code sequence:
 |5|101|111|
 |6|110|101|
 |7|111|100|
+
 Gray code representation is especially useful when constructing Karnaugh maps, as it ensures that only one variable changes between adjacent cells
-### Converting between BCD and Gray
+### Converting between BCD and Gray  
 #### Converting BCD to Gray
 We convert BCD to Gray  by firstly convert BCD decimal then we convert the decimal result to binary after that we convert the binary result to Gray using the following operation
 - Keep the first (most significant) bit the same.
 - Each next bit = current binary bit XOR previous binary bit.
 
-**Example** convert $(00100010)_{BCD}$ to Gray  
+**Example** convert $`(00100010)_{BCD}`$ to Gray  
 The BCD number is split into two 4-bit groups:
 - **0010** represents the digit **2**
 - **0010** represents the digit **2**
 
 So, the decimal number is:
 
-$$(00100010)_{BCD} = 22_{10}$$​
+$`(00100010)_{BCD} = 22_{10}`$
 
 Now we Convert 22 to binary:
 
-$$22 = (10110)_2$$​
+$`22 = (10110)_2`$
 
 Finally we Convert Binary to Gray Code, to convert binary $(10110)_2$ to Gray code:
 - Keep the first bit the same: `1`
 - Perform XOR between each pair of adjacent bits:
+
 <img src="./attachments/b2g.png" height="250px" width="450px">
-The final Gray code is: $(11101)_{Gray}$
+
+The final Gray code is: $`(11101)_{\text{Gray}}`$
+
 #### Converting Gray to BCD
 We convert Gray  to BCD by first converting it to binary then convert the binary number to decimal after that we convert the resut to BCD, we convert Gray to binary we follow this rule
 - Keep the first (most significant) bit the same.
 - Each next binary bit = previous binary bit XOR current Gray bit.
 
-**Example:** Convert $(11101)_{\text{Gray}}$​ to BCD  
+**Example:** Convert $`(11101)_{\text{Gray}}`$​ to BCD   
 We Convert Gray to Binary  Code following this rules:
 - Keep the first (most significant) bit the same.
-- Each next binary bit = previous binary bit XOR current Gray bit.
+- Each next binary bit = previous binary bit XOR current Gray bit.  
 <img src="./attachments/g2b.png" height="250px" width="450px">
-We get as result $(10110)_2$, now we convert Binary to Decimal
-$$(10110)_2=(22)_{10}$$
+
+We get as result $(10110)_2$ , now we convert Binary to Decimal  $`(10110)_2 = (22)_{10}`$
+
 Finally we split the decimal number 22 into its digits:
-- First digit: 2 = $0010_{BCD}$
-- Second digit: 2 = $0010_{BCD}$
+ 
+- First digit: 2 = $`0010_{BCD}`$
+- Second digit: 2 = $`0010_{BCD}`$
 
 **Final Result**:
 
-$$(11101)_{\text{Gray}} = (00100010)_{BCD}$$
+$`(11101)_{\text{Gray}} = (00100010)_{BCD}`$
