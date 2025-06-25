@@ -25,6 +25,7 @@ We are given the following truth table:
 | 1   | 0   | 1   | 0          |
 | 1   | 1   | 0   | 0          |
 | 1   | 1   | 1   | 1          |
+
 From the truth table we select input combinations where output = 1, we get following input combinations:
 
 | A   | B   | C   |
@@ -46,6 +47,7 @@ Then, we combine the variables using AND (multiplication) to form the minterm.
 | 0   | 1   | 1   | $\overline{A}.B.C$            |
 | 1   | 0   | 0   | $A.\overline{B}.\overline{C}$ |
 | 1   | 1   | 1   | A.B.C                         |
+
 Now we write the SOP Expression we sum (OR) the minterms to get the final logic function:  
 **$F = \overline{A}·\overline{B}·C + \overline{A}·B·C + A·\overline{B}·\overline{C} + A·B·C$**
 ### Product of Sums Form
@@ -68,6 +70,7 @@ We are given the following truth table:
 | 1   | 0   | 1   | 0          |
 | 1   | 1   | 0   | 0          |
 | 1   | 1   | 1   | 1          |
+
 From the truth table we select input combinations where output = 0, we get following input combinations:
 
 |A|B|C|
@@ -76,6 +79,7 @@ From the truth table we select input combinations where output = 0, we get follo
 |0|1|0|
 |1|0|1|
 |1|1|0|
+
 Now we create the maxterms for each row where the output is 1:
 - If a variable is **0**, we use it as it is
 - If a variable is **1**, we use its negation (e.g., A → $\overline{A}$)
@@ -88,8 +92,9 @@ Then, we combine the variables using AND (multiplication) to form the minterm.
 | 0   | 1   | 0   | $(A + \overline{B} + C)$            |
 | 1   | 0   | 1   | $(\overline{A} + B + \overline{C})$ |
 | 1   | 1   | 0   | $(\overline{A} + \overline{B} + C)$ |
-Now we write the POS Expression we multipy (AND) the maxterms to get the final logic function:  
-$$F = (A + B + C)· (A + \overline{B} + C) · (\overline{A} + B + \overline{C}) · (\overline{A} + \overline{B} + C)$$
+
+Now we write the POS Expression we multipy (AND) the maxterms to get the final logic function:   
+$F = (A + B + C)· (A + \overline{B} + C) · (\overline{A} + B + \overline{C}) · (\overline{A} + \overline{B} + C)$
 ## Simplifying Logic Equations
 ### Introduction
 Simplifying and optimizing logic functions is essential for reducing the cost and complexity of logic circuits. By simplifying a function, we can minimize the number of logic gates required, and in some cases, even discover that certain variables have no effect on the final output. This results in more efficient, faster, and cheaper digital systems.  
@@ -97,33 +102,34 @@ There are several techniques used to simplify logic functions. In this section, 
 ### Boolean Algebra Rules
 One of the most fundamental ways to simplify logic functions is by using Boolean algebra rules. These rules allow us to manipulate and reduce logical expressions in much the same way we simplify algebraic expressions in mathematics.
 #### Example
-Let’s suppose we are given the following logic function and want to simplify it:
-$$F=A.\overline{B}.\overline{C}+\overline{A}.B.\overline{C}+A.\overline{B}.C+C$$
+Let’s suppose we are given the following logic function and want to simplify it:  
+
+$F=A.\overline{B}.\overline{C}+\overline{A}.B.\overline{C}+A.\overline{B}.C+C$
 
 Step 1: Factor out C from the third and fourth terms
 
-$$F=A.\overline{B}.\overline{C}+\overline{A}.B.\overline{C}+C.(A.\overline{B}+1)$$
+$F=A.\overline{B}.\overline{C}+\overline{A}.B.\overline{C}+C.(A.\overline{B}+1)$
 
 In Boolean algebra, any expression ORed with 1 equals 1:
 
-$$A\overline{B} + 1 = 1$$
+$A\overline{B} + 1 = 1$
 
-So the expression becomes:
-$$F=A.\overline{B}.\overline{C}+\overline{A}.B.\overline{C}+C$$
+So the expression becomes:  
+$F=A.\overline{B}.\overline{C}+\overline{A}.B.\overline{C}+C$   
 Step 2: We factor out $\overline{C}$ from the first two terms
 
-$$F = \overline{C}(A\overline{B} + \overline{A}B) + C$$
+$F = \overline{C}(A\overline{B} + \overline{A}B) + C$
 
 Notice that $A\overline{B} + \overline{A}B$ is the definition of exclusive OR (XOR) $A\overline{B} + \overline{A}B= A \oplus B$ 
 So the function becomes:
 
-$$F = \overline{C}(A \oplus B) + C$$
+$F = \overline{C}(A \oplus B) + C$
 
 Step 3: We apply the identity of Boolean algebra: $X + \overline{X}Y = X + Y$
 
 This matches our form exactly, with $X=C$ and $Y = A \oplus B$, so we can simplify:
 
-$$F = C + (A \oplus B)$$
+$F = C + (A \oplus B)$
 
 The final simplified wxpression is $F = C + (A \oplus B)$
 ### Analysing the Truth Table
@@ -149,8 +155,8 @@ We observe that:
 - The values of **B** and **C** have no effect on the output
 
 **Conclusion:**  
-The output depends only on **A**, so the simplified function is:
-$$F=A$$
+The output depends only on **A**, so the simplified function is:  
+$F=A$
 #### Example 2
 Now consider this truth table:
 
@@ -174,6 +180,7 @@ To analyze this, we divide the table based on the value of A:
 |0|0|1|1|
 |0|1|0|1|
 |0|1|1|0|
+
 **When A = 1:**
 
 |A|B|C|F|
@@ -185,7 +192,7 @@ To analyze this, we divide the table based on the value of A:
 
 In both cases, the output depends only on the **XOR** of **B** and **C** and A has no influence on the output:
 
-$$F = B \oplus C$$
+$F = B \oplus C$
 ### Karnaugh Map
 The Karnaugh Map (K-Map) is a graphical tool that helps us analyze and simplify truth tables in a more efficient and visual way. It reduces the complexity of Boolean expressions by organizing minterms or maxterms in a structured format.
 #### Steps to Use a Karnaugh Map
@@ -224,25 +231,33 @@ Lets suppose we have the following table
 | 1   | 0   | 1   | 0          |
 | 1   | 1   | 0   | 0          |
 | 1   | 1   | 1   | 1          |
+
 We draw the Karnaugh map as follows :
 
 | A \ B,C | 00  | 01  | 11  | 10  |
 | ------- | --- | --- | --- | --- |
 | 0       | 0   | 0   | 1   | 0   |
 | 1       | 0   | 0   | 1   | 0   |
+
 **Using minterms** 
-If we want to work with minterms, we group the **1s** in the Karnaugh map instead of the 1s. The groups will be as follows:
-![](./attachments/table.png)
+
+If we want to work with minterms, we group the **1s** in the Karnaugh map instead of the 1s. The groups will be as follows:  
+
+![](./attachments/table.png)  
+
 We can observe that there is only one group, which represents a single minterm. In this group, A and B remain constant and both are in the 1 state, while C changes. Since C changes, it is not included in the minterm. Because A and B are both 1 and do not change, we include them without negation.
-Final simplified expression:  
-$$F = A · B$$
+Final simplified expression:   
+$F = A · B$
 **Using maxtems** 
-If we want to work with maxterms, we group the **0s** in the Karnaugh map instead of the 1s. The groups will be as follows:
-![](./attachments/tablee.png)
+
+If we want to work with maxterms, we group the **0s** in the Karnaugh map instead of the 1s. The groups will be as follows:  
+
+![](./attachments/tablee.png)  
+
 From the green group, we can see that B does not change, while A and C do. Since B remains 0 across this group, we include B as the first maxterm.  
 From the red group, C remains constant while A and B change. Since C is 0 in this group, we include C as second maxterms.  
-Now we create our function by doing multplication to those maxterms  
-$$F=B.C$$
+Now we create our function by doing multplication to those maxterms   
+$F=B.C$
 #### Example 2
 Lets suppose we have the following table
 
@@ -264,6 +279,7 @@ Lets suppose we have the following table
 |1|1|0|1|0|
 |1|1|1|0|0|
 |1|1|1|1|1|
+
 We draw the Karnaugh map as follows :
 
 | A,B \ C,D | 00  | 01  | 11  | 10  |
@@ -272,19 +288,25 @@ We draw the Karnaugh map as follows :
 | 01        | 0   | 0   | 1   | 0   |
 | 11        | 0   | 0   | 1   | 0   |
 | 10        | 0   | 0   | 1   | 0   |
-**Using minterms** 
-If we want to work with minterms, we group the **1s** in the Karnaugh map instead of the 1s. The groups will be as follows:
-![](./attachments/table2.png)
+
+**Using minterms**  
+
+If we want to work with minterms, we group the **1s** in the Karnaugh map instead of the 1s. The groups will be as follows:  
+
+![](./attachments/table2.png)  
+
 We can observe that there is only one group, which represents a single minterm. In this group, C and D remain constant and both are in the 1 state, while A and B changes. Since A and B changes, they are not included in the minterm. Because C and D are both 1 and do not change, we include them without negation.
 Final simplified expression:  
-$$F = C · D$$
+$F = C · D$
 **Using maxtems** 
-If we want to work with maxterms, we group the **0s** in the Karnaugh map instead of the 1s. The groups will be as follows:
-![](./attachments/table3.png)
+If we want to work with maxterms, we group the **0s** in the Karnaugh map instead of the 1s. The groups will be as follows: 
+
+![](./attachments/table3.png)  
+
 From the green group, we can see that C does not change, while the other variables do. Since C remains 0 across this group, we include C as the first maxterm.  
 From the red group, D remains constant while the other variables change. Since D is 0 in this group, we include D as the second maxterm.  
-Now, we create our function by multiplying these maxterms together.
-$$F=C.D$$
+Now, we create our function by multiplying these maxterms together.   
+$F=C.D$
 ## Arithmetic Logic Circuits
 ### Introduction
 We learnt that computer use electricity to perfume it operations, this done by using logic circuits using logic gates we  can simulate arthmetic operations on binary , we will see howwe can do addiion and substraction on binary
@@ -308,12 +330,15 @@ Let’s name the inputs A and B, the sum output R, and the carry output C. Based
 | 0   | 1   | 1       | 0         |
 | 1   | 0   | 1       | 0         |
 | 1   | 1   | 0       | 1         |
+
 From the truth table, we can derive the expressions for the outputs:
 - $R = A \oplus B$
 - $C = A \cdot B$
 
-**Circuit**
-<img src="./attachments/halfadder.png" width="250px" height="150px">
+**Circuit**  
+
+<img src="./attachments/halfadder.png" width="250px" height="150px">  
+
 ### Full Adder
 A full adder extends the half adder by including a third input: the carry-in from the previous bit addition. This allows it to be used in multi-bit binary addition. 
 The inputs are:
@@ -337,12 +362,15 @@ The full adder truth table is as follows:
 | 1     | 0     | 1         | 0             | 1                   |
 | 1     | 1     | 0         | 0             | 1                   |
 | 1     | 1     | 1         | 1             | 1                   |
+
 From this table, we can derive the logic expressions:
 - $R_n = A_n \oplus B_n \oplus C_{n-1}$
 - $C_n = (A_n \cdot B_n) + (B_n \cdot C_{n-1}) + (A_n \cdot C_{n-1})$
 
-**Circuit**
-<img src="./attachments/fulladder.png" width="550px" height="300px">
+**Circuit**  
+
+<img src="./attachments/fulladder.PNG" width="550px" height="300px">  
+
 ### Subtractor Circuit
 
 #### Half Subtractor
@@ -370,7 +398,9 @@ From this truth table, we can derive the output expressions:
 - $Bo = \overline{A} \cdot B$
 
 **Circuit**  
+
 <img src="./attachments/halfsubtractor.png" width="250px" height="150px">
+
 #### Full Subtractor
 
 A full subtractor extends the half subtractor by including a third input: the borrow-in from a previous subtraction. This allows the circuit to perform multi-bit subtraction.  
@@ -403,12 +433,14 @@ From the table, we derive the logic expressions:
 
 **Circuit**  
 <img src="./attachments/fullsubtractor.png" width="550px" height="300px">
+
 ### Critical Path Delay
 In a previous circuits, we saw how to build a full adder. However, when we need to add two binary numbers with more than one bit, we must connect multiple full adders together we will need n full adders for n-bit numbers. Each full adder receives a carry input from the previous one, forming a chain where the carry propagates through the entire circuit. The path taken by a signal from the input of the first full adder to the output of the last is known as the critical path.  
 The critical path is defined as the longest path that a signal must travel through the logic gates from any input to any output. This path determines the maximum delay in a combinational circuit, as each logic operation requires a certain amount of time to complete. In a ripple-carry adder, for example, each full adder must wait for the carry-out from the previous adder before it can produce its result. This creates a sequential dependency that introduces cumulative delay.  
 For instance, if we want to add two 4-bit binary numbers using a ripple-carry adder, we would need 4 full adders. If each full adder takes 2 nanoseconds to complete its operation, the total delay would be:
 4 × 2ns = 8ns.
 This means the circuit requires at least 8 nanoseconds to produce a valid output after the inputs change.  
+
 <img src="./attachments/4bit_adder.png" height="300px">  
 
 Understanding the critical path delay is essential because it defines the minimum amount of time the circuit needs to compute its output. This delay plays a crucial role when transitioning to sequential logic, where it directly impacts how fast we can clock the system without introducing timing errors.
