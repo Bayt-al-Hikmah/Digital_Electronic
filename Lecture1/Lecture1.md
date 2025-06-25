@@ -174,7 +174,7 @@ Convert $`(101110)_2`$ to octal
 
 The result will be then $`(101110)_2 = (56)_8`$
 
-- Convert $(11010111)_2$ to hexadecimal
+Convert $(11010111)_2$ to hexadecimal
 
   - $`(0111)_2 = (7)_{16}`$
 
